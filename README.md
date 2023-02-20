@@ -1,6 +1,6 @@
 # realization of quantum-computer
 
-Этап 1
+## Этап 1
 Реализация вычислителя кронекеровских произведений.
 
 1. Входные данные. 
@@ -12,13 +12,12 @@
 Язык программирования: Python 3.8
 Определяем функцию kronecker_vec(), которая будет вычислять кронекеровское произведение двух векторов.
 
-    def kronecker_vec(vec1, vec2):
-
-        vec_new = []
-        for i in vec1:
-            for j in vec2:
-                vec_new += [i * j]
-        return vec_new
+        def kronecker_vec(vec1, vec2):
+            vec_new = []
+            for i in vec1:
+                for j in vec2:
+                    vec_new += [i * j]
+            return vec_new
 
 Функция kronecker_matrix() будет вычислять кронекеровское произведение двух матриц.
 
@@ -35,7 +34,7 @@
 
 На вход подается слово. В зависимости от значения этого слова в дальнейшем принимаем на входе либо векторы, либо матрицы.
 
-first_str = input()
+    first_str = input()
 
 В случае с вектором применяем функцию kronecker_vec()
 
@@ -56,18 +55,18 @@ first_str = input()
 
 В случае с матрицами работаем с двумя матрицами и применяем функцию kronecker_matrix()
 
-else:
-    n, m = (int(i) for i in input().split())
-    matrix1 = [[0]*n for i in range(n)]
-    matrix2 = [[0]*m for i in range(m)]
+    else:
+        n, m = (int(i) for i in input().split())
+        matrix1 = [[0]*n for i in range(n)]
+        matrix2 = [[0]*m for i in range(m)]
 
-    for i in range(n):
-        matrix1[i] = [int(j) for j in input().split()]
-    for i in range(m):
-        matrix2[i] = [int(j) for j in input().split()]
+        for i in range(n):
+            matrix1[i] = [int(j) for j in input().split()]
+        for i in range(m):
+            matrix2[i] = [int(j) for j in input().split()]
 
 
-    matrix_new = kronecker_matrix(matrix1, matrix2)
+        matrix_new = kronecker_matrix(matrix1, matrix2)
     
 Выводим полученную матрицу m*n
 
@@ -78,7 +77,7 @@ else:
             else:
                 print(matrix_new[i][j])
 
-Этап 2
+##Этап 2
 Реализация применения операторов эволюции (матриц) к квантовым системам (векторам) и последующее измерение состояний.
 
 1. Входные данные. Первой строкой будет подаваться целое число кубит системы k такое, что 2 ≤ k ≤ 7 и маска измерения — строка длиной k состоящей из нулей и единиц. Маска и число кубит разделены пробелом. Во второй строке будет находиться 2 k действительных чисел. Эти числа обозначают состояние системы. Далее в последующих 2 k строк будут находиться 2 k действительных чисел разделенных пробелами. Эти числа соответствуют оператору эволюции системы.
